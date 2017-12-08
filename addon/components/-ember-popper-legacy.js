@@ -1,14 +1,20 @@
-import { addObserver, removeObserver } from '@ember/object/observers';
-
 import EmberPopperBase from './ember-popper-base';
-import { computed } from 'ember-decorators/object';
-
-import { tagName } from 'ember-decorators/component';
-
 import { GTE_EMBER_1_13 } from 'ember-compatibility-helpers';
+import { addObserver, removeObserver } from '@ember/object/observers';
+import { argument } from '@ember-decorators/argument';
+import { computed } from 'ember-decorators/object';
+import { tagName } from 'ember-decorators/component';
+import { type } from '@ember-decorators/argument/type';
 
 @tagName('div')
 export default class EmberPopper extends EmberPopperBase {
+
+  /**
+   * The element the popper will target.
+   */
+  @argument
+  @type(Element)
+  popperTarget = null
 
   // ================== LIFECYCLE HOOKS ==================
 
